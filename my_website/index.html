@@ -212,7 +212,12 @@
           </div>
         </div>
         <div class="contact-form-col animate-fade-left">
-          <form class="contact-form" id="contact-form" novalidate>
+          <form class="contact-form" id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+            <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="subject" value="New portfolio inquiry from %{formName}" />
+            <p class="hidden-field" style="display:none" aria-hidden="true">
+              <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+            </p>
             <div class="form-row">
               <div class="form-group">
                 <label for="lead-name" class="form-label">Full Name *</label>
