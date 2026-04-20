@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard — Hellodev</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════ LAYOUT ═══════════════════════════════════ -->
+<div class="admin-layout">
+
+  <!-- ══ SIDEBAR ══ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="../index.html" target="_blank" class="sidebar-logo">
+        <div class="logo-text">Hello<span class="accent">dev</span></div>
+      </a>
+      <div class="sidebar-subtitle">Admin Panel</div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-label">Overview</div>
+      <div class="nav-item active" data-panel="dashboard">
+        <span class="nav-icon">📊</span> Dashboard
+      </div>
+      <div class="nav-item" data-panel="leads">
+        <span class="nav-icon">📥</span> Leads
+      </div>
+
+      <div class="sidebar-section-label">Content</div>
+      <div class="nav-item" data-panel="cms">
+        <span class="nav-icon">✏️</span> CMS Editor
+      </div>
+      <div class="nav-item" data-panel="projects">
+        <span class="nav-icon">💼</span> Projects
+      </div>
+      <div class="nav-item" data-panel="testimonials">
+        <span class="nav-icon">💬</span> Testimonials
+      </div>
+
+      <div class="sidebar-section-label">Settings</div>
+      <div class="nav-item" data-panel="seo">
+        <span class="nav-icon">🔍</span> SEO Settings
+      </div>
+      <div class="nav-item" data-panel="visibility">
+        <span class="nav-icon">👁️</span> Section Visibility
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="admin-user-info">
+        <div class="user-avatar" id="user-avatar">AD</div>
+        <div class="user-email" id="user-email">Loading...</div>
+      </div>
+      <button class="btn-logout" id="logout-btn">⬉ Sign Out</button>
+    </div>
+  </aside>
+
+  <!-- ══ MAIN CONTENT ══ -->
+  <main class="admin-main">
+    <header class="admin-header">
+      <div style="display:flex;align-items:center;gap:16px;">
+        <button class="header-btn" id="sidebar-toggle" style="display:none;">☰</button>
+        <h1 class="admin-page-title" id="page-title">Dashboard</h1>
+      </div>
+      <div class="admin-header-actions">
+        <a href="../index.html" target="_blank" class="header-btn">🌐 View Site</a>
+      </div>
+    </header>
+
+    <div class="admin-content">
+
+      <!-- ═══ DASHBOARD PANEL ═══ -->
+      <div class="admin-panel active" id="panel-dashboard">
+        <div class="stats-grid" id="stats-grid">
+          <div class="stat-card">
+            <div class="stat-card-header">
+              <div class="stat-card-icon">📥</div>
+              <div class="stat-card-label">Total Leads</div>
+            </div>
+            <div class="stat-card-value" id="stat-leads">—</div>
+            <div class="stat-card-sub">All time inquiries</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-header">
+              <div class="stat-card-icon">💼</div>
+              <div class="stat-card-label">Projects</div>
+            </div>
+            <div class="stat-card-value" id="stat-projects">—</div>
+            <div class="stat-card-sub">Showcased</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-header">
+              <div class="stat-card-icon">💬</div>
+              <div class="stat-card-label">Testimonials</div>
+            </div>
+            <div class="stat-card-value" id="stat-testi">—</div>
+            <div class="stat-card-sub">Client reviews</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-header">
+              <div class="stat-card-icon">📅</div>
+              <div class="stat-card-label">New Today</div>
+            </div>
+            <div class="stat-card-value" id="stat-today">—</div>
+            <div class="stat-card-sub">Leads today</div>
+          </div>
+        </div>
+
+        <!-- Recent Leads -->
+        <div class="table-card">
+          <div class="table-header">
+            <div class="table-title">Recent Leads</div>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Name</th><th>Email</th><th>Phone</th><th>Received</th>
+                </tr>
+              </thead>
+              <tbody id="recent-leads-body">
+                <tr><td colspan="4" class="table-empty">Loading...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ LEADS PANEL ═══ -->
+      <div class="admin-panel" id="panel-leads">
+        <div class="table-card">
+          <div class="table-header">
+            <div class="table-title">All Leads</div>
+            <div class="table-search">
+              <span class="search-icon">🔍</span>
+              <input type="text" class="search-input" id="leads-search" placeholder="Search leads..." />
+            </div>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Name</th><th>Email</th><th>Phone</th><th>Message</th><th>Date</th><th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="leads-table-body">
+                <tr><td colspan="6" class="table-empty">Loading leads...</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-footer" id="leads-count">0 leads</div>
+        </div>
+      </div>
+
+      <!-- ═══ CMS PANEL ═══ -->
+      <div class="admin-panel" id="panel-cms">
+        <div class="cms-sections">
+
+          <!-- Hero CMS -->
+          <div class="cms-card" id="cms-hero">
+            <div class="cms-card-header" onclick="toggleCmsCard('hero')">
+              <div class="cms-card-title"><span class="cms-card-icon">🏠</span> Hero Section</div>
+              <span class="cms-toggle-icon">▼</span>
+            </div>
+            <div class="cms-card-body">
+              <div class="cms-field">
+                <label class="cms-label">Headline</label>
+                <input type="text" class="cms-input" id="hero-headline" placeholder="Enter main headline..." />
+              </div>
+              <div class="cms-field">
+                <label class="cms-label">Subheadline</label>
+                <input type="text" class="cms-input" id="hero-subheadline" placeholder="Enter subheadline..." />
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                <div class="cms-field">
+                  <label class="cms-label">Primary CTA Button</label>
+                  <input type="text" class="cms-input" id="hero-cta1" placeholder="View Projects" />
+                </div>
+                <div class="cms-field">
+                  <label class="cms-label">Secondary CTA Button</label>
+                  <input type="text" class="cms-input" id="hero-cta2" placeholder="Hire Me" />
+                </div>
+              </div>
+              <button class="cms-save-btn" onclick="saveCMS('hero')">💾 Save Hero</button>
+              <span class="cms-save-status" id="hero-status"></span>
+            </div>
+          </div>
+
+          <!-- About CMS -->
+          <div class="cms-card" id="cms-about">
+            <div class="cms-card-header" onclick="toggleCmsCard('about')">
+              <div class="cms-card-title"><span class="cms-card-icon">👤</span> About Section</div>
+              <span class="cms-toggle-icon">▼</span>
+            </div>
+            <div class="cms-card-body">
+              <div class="cms-field">
+                <label class="cms-label">Section Title</label>
+                <input type="text" class="cms-input" id="about-title" placeholder="About Me" />
+              </div>
+              <div class="cms-field">
+                <label class="cms-label">Introduction Text</label>
+                <textarea class="cms-textarea" id="about-intro" placeholder="Short introduction..."></textarea>
+              </div>
+              <div class="cms-field">
+                <label class="cms-label">Mission Statement</label>
+                <textarea class="cms-textarea" id="about-mission" placeholder="Your mission statement..." style="min-height:80px;"></textarea>
+              </div>
+              <div class="cms-field">
+                <label class="cms-label">Skills (comma-separated)</label>
+                <input type="text" class="cms-input" id="about-skills" placeholder="Flutter, React, Supabase, ..." />
+              </div>
+              <button class="cms-save-btn" onclick="saveCMS('about')">💾 Save About</button>
+              <span class="cms-save-status" id="about-status"></span>
+            </div>
+          </div>
+
+          <!-- Services CMS -->
+          <div class="cms-card" id="cms-services">
+            <div class="cms-card-header" onclick="toggleCmsCard('services')">
+              <div class="cms-card-title"><span class="cms-card-icon">⚙️</span> Services Section</div>
+              <span class="cms-toggle-icon">▼</span>
+            </div>
+            <div class="cms-card-body">
+              <div class="cms-field">
+                <label class="cms-label">Section Title</label>
+                <input type="text" class="cms-input" id="services-title" placeholder="Services" />
+              </div>
+              <label class="cms-label" style="margin-bottom:12px;display:block;">Service Cards</label>
+              <div class="item-group" id="services-items">
+                <!-- Dynamic -->
+              </div>
+              <button class="btn-add-item" onclick="addServiceItem()">+ Add Service</button>
+              <br/>
+              <button class="cms-save-btn" onclick="saveCMS('services')" style="margin-top:16px;">💾 Save Services</button>
+              <span class="cms-save-status" id="services-status"></span>
+            </div>
+          </div>
+
+          <!-- FAQ CMS -->
+          <div class="cms-card" id="cms-faq">
+            <div class="cms-card-header" onclick="toggleCmsCard('faq')">
+              <div class="cms-card-title"><span class="cms-card-icon">❓</span> FAQ Section</div>
+              <span class="cms-toggle-icon">▼</span>
+            </div>
+            <div class="cms-card-body">
+              <div class="cms-field">
+                <label class="cms-label">Section Title</label>
+                <input type="text" class="cms-input" id="faq-title" placeholder="FAQ" />
+              </div>
+              <label class="cms-label" style="margin-bottom:12px;display:block;">FAQ Items</label>
+              <div class="item-group" id="faq-items">
+                <!-- Dynamic -->
+              </div>
+              <button class="btn-add-item" onclick="addFAQItem()">+ Add FAQ</button>
+              <br/>
+              <button class="cms-save-btn" onclick="saveCMS('faq')" style="margin-top:16px;">💾 Save FAQ</button>
+              <span class="cms-save-status" id="faq-status"></span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ═══ PROJECTS PANEL ═══ -->
+      <div class="admin-panel" id="panel-projects">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+          <h2 style="font-family:var(--font-head);font-size:1.2rem;color:#fff;">Manage Projects</h2>
+          <button class="header-btn primary" onclick="openModal('project')">+ Add Project</button>
+        </div>
+        <div class="manage-grid" id="projects-manage-grid">
+          <div style="color:var(--text-muted);font-size:0.9rem;padding:20px;">Loading...</div>
+        </div>
+      </div>
+
+      <!-- ═══ TESTIMONIALS PANEL ═══ -->
+      <div class="admin-panel" id="panel-testimonials">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+          <h2 style="font-family:var(--font-head);font-size:1.2rem;color:#fff;">Manage Testimonials</h2>
+          <button class="header-btn primary" onclick="openModal('testimonial')">+ Add Testimonial</button>
+        </div>
+        <div class="manage-grid" id="testi-manage-grid">
+          <div style="color:var(--text-muted);font-size:0.9rem;padding:20px;">Loading...</div>
+        </div>
+      </div>
+
+      <!-- ═══ SEO PANEL ═══ -->
+      <div class="admin-panel" id="panel-seo">
+        <div class="seo-card">
+          <div class="seo-card-title">🔍 SEO Settings</div>
+          <div class="cms-field">
+            <label class="cms-label">Meta Title</label>
+            <input type="text" class="cms-input" id="seo-title" placeholder="Page title for search engines" />
+          </div>
+          <div class="cms-field">
+            <label class="cms-label">Meta Description</label>
+            <textarea class="cms-textarea" id="seo-desc" placeholder="Brief page description..." style="min-height:80px;"></textarea>
+          </div>
+          <div class="cms-field">
+            <label class="cms-label">Keywords (comma-separated)</label>
+            <input type="text" class="cms-input" id="seo-keywords" placeholder="web development, flutter, ..." />
+          </div>
+          <div class="cms-field">
+            <label class="cms-label">OG Title (Social Share)</label>
+            <input type="text" class="cms-input" id="seo-og-title" placeholder="Title for social media" />
+          </div>
+          <div class="cms-field">
+            <label class="cms-label">OG Description</label>
+            <textarea class="cms-textarea" id="seo-og-desc" placeholder="Description for social media..." style="min-height:80px;"></textarea>
+          </div>
+          <button class="cms-save-btn" onclick="saveSEO()">💾 Save SEO Settings</button>
+          <span class="cms-save-status" id="seo-status"></span>
+        </div>
+      </div>
+
+      <!-- ═══ VISIBILITY PANEL ═══ -->
+      <div class="admin-panel" id="panel-visibility">
+        <div style="margin-bottom:24px;">
+          <h2 style="font-family:var(--font-head);font-size:1.2rem;color:#fff;margin-bottom:8px;">Section Visibility</h2>
+          <p style="color:var(--text-muted);font-size:0.9rem;">Toggle sections to show or hide them on your portfolio.</p>
+        </div>
+        <div class="visibility-grid" id="visibility-grid">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+    </div><!-- /.admin-content -->
+  </main>
+</div>
+
+<!-- ═══════════════════════════════════ MODAL ═══════════════════════════════════ -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-title">Add Item</h2>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <form id="modal-form">
+      <div id="modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+        <button type="submit" class="btn-primary" id="modal-save" style="width:auto;padding:10px 24px;">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ TOAST ═══════════════════════════════════ -->
+<div class="toast-container" id="toast-container"></div>
+
+<script src="../js/supabase-config.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
