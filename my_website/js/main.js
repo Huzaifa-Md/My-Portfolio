@@ -144,9 +144,27 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (error) throw error;
 
       showFormStatus('success', '✓ Message sent! I will get back to you within 24 hours.');
+
+      // Send email notification to admin via Netlify Forms
+      const netlifyPayload = new URLSearchParams({
+        'form-name': 'contact',
+        subject: `New portfolio inquiry from ${name}`,
+        name,
+        email,
+        phone,
+        message,
+        'bot-field': '',
+      }).toString();
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: netlifyPayload,
+      }).catch(() => {});
+
       form.reset();
 
-      // Send email notification (best-effort, non-blocking)
+      // Legacy Supabase edge function notification (best-effort, non-blocking)
       fetch(`${SUPABASE_URL}/functions/v1/notify-lead`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
