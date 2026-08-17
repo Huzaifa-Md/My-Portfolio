@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="meta-title">Hellodev — Modern Web & App Development</title>
+  <meta name="description" id="meta-desc"
+    content="I build fast websites and scalable mobile apps. Helping businesses grow digitally with modern solutions." />
+  <meta name="keywords" id="meta-keywords"
+    content="web development, flutter, mobile app, supabase, freelance developer" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" id="og-title" content="Hellodev — Modern Web & App Development" />
+  <meta property="og:description" id="og-desc"
+    content="I build fast websites and scalable mobile apps. Helping businesses grow digitally with modern solutions." />
+  <meta property="og:url" content="https://hellodev.com" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════ NAVBAR ═══════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-text">Hellodev</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        <li><a href="#services" class="nav-link" data-section="services">Services</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#faq" class="nav-link" data-section="faq">FAQ</a></li>
+        <li class="mobile-nav-contact"><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="#contact" class="btn btn-primary btn-sm nav-cta">Contact</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════ HERO ═══════════════════════════════════ -->
+  <section class="section hero-section" id="home">
+    <div class="container hero-container">
+      <div class="hero-content animate-fade-up">
+        <h1 class="hero-headline" id="hero-headline">Building software that feels right.</h1>
+        <p class="hero-subheadline" id="hero-sub">Fast websites and scalable applications designed with absolute
+          precision. No fluff, just results.</p>
+        <div class="hero-cta-group">
+          <a href="#projects" class="btn btn-primary" id="hero-cta-primary">View Projects</a>
+          <a href="#contact" class="btn btn-outline" id="hero-cta-secondary">Hire Me</a>
+        </div>
+      </div>
+      <div class="hero-visual animate-fade-up delay-2">
+        <div class="hero-img-wrapper">
+          <img src="assets/business-mockups.png" alt="Business Solutions" class="hero-img" loading="eager" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section about-section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content-col animate-fade-up">
+          <div class="section-label">About Me</div>
+          <h2 class="section-title">Engineering scalable digital products.</h2>
+          <div class="about-text-content">
+            <p class="about-intro">I am a professional software engineer passionate about solving complex business
+              problems through modern technology.</p>
+            <p class="about-expertise">My expertise spans building <strong>modern websites, web applications, mobile
+                applications, and automation solutions</strong> that deliver real value.</p>
+            <div class="about-approach">
+              <div class="approach-item">
+                <svg class="approach-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                <span>Performance</span>
+              </div>
+              <div class="approach-item">
+                <svg class="approach-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+                <span>Clean Code</span>
+              </div>
+              <div class="approach-item">
+                <svg class="approach-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                </svg>
+                <span>Scalability</span>
+              </div>
+              <div class="approach-item">
+                <svg class="approach-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <span>Responsive & UX</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-stats" id="about-stats">
+            <div class="stat-box">
+              <span class="stat-number"><span class="counter" data-target="4">0</span>+</span>
+              <span class="stat-label">Years of<br>Experience</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number"><span class="counter" data-target="20">0</span>+</span>
+              <span class="stat-label">Projects<br>Delivered</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number"><span class="counter" data-target="100">0</span>%</span>
+              <span class="stat-label">Client<br>Satisfaction</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-timeline-col animate-fade-up delay-1">
+          <h3 class="timeline-title">My Journey</h3>
+          <div class="timeline-wrapper">
+            <div class="timeline-item interactive-timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">Education</span>
+                <h4 class="timeline-role">B.Tech</h4>
+                <p class="timeline-desc">Built a strong foundation in computer science and software engineering
+                  principles.</p>
+              </div>
+            </div>
+            <div class="timeline-item interactive-timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">Experience</span>
+                <h4 class="timeline-role">Freelance Client Projects</h4>
+                <p class="timeline-desc">Delivered custom web and mobile applications for real-world clients.</p>
+              </div>
+            </div>
+            <div class="timeline-item interactive-timeline-item active">
+              <div class="timeline-dot pulse-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">Present</span>
+                <h4 class="timeline-role">Continuing to build modern software products</h4>
+                <p class="timeline-desc">Focusing on high-performance solutions utilizing the latest tech stacks and AI.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services-section" id="services">
+    <div class="container">
+      <div class="section-header-left animate-fade-up">
+        <h2 class="section-title" id="services-title">Capabilities.</h2>
+        <p class="section-subtitle">End-to-end solutions engineered for scale and speed.</p>
+      </div>
+      <div class="services-premium-grid">
+
+        <!-- 1. Custom Website Development -->
+        <div class="service-premium-card animate-fade-up">
+          <div class="service-icon-wrap">
+            <svg class="service-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+            </svg>
+          </div>
+          <h3 class="service-title">Custom Website Development</h3>
+          <p class="service-desc">I build lightning-fast, high-converting websites designed to establish your digital
+            presence and drive growth.</p>
+          <div class="service-features">
+            <span>Business websites</span>
+            <span>Portfolio websites</span>
+            <span>Landing pages</span>
+          </div>
+        </div>
+
+        <!-- 2. Full Stack Web Applications -->
+        <div class="service-premium-card animate-fade-up delay-1">
+          <div class="service-icon-wrap">
+            <svg class="service-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
+            </svg>
+          </div>
+          <h3 class="service-title">Full Stack Web Applications</h3>
+          <p class="service-desc">Complete end-to-end web applications with robust backends, secure authentication, and
+            intuitive dashboards.</p>
+          <div class="service-features">
+            <span>Authentication</span>
+            <span>Dashboards & Admin Panels</span>
+            <span>Database Integration</span>
+          </div>
+        </div>
+
+        <!-- 3. Mobile App Development -->
+        <div class="service-premium-card animate-fade-up delay-2">
+          <div class="service-icon-wrap">
+            <svg class="service-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+            </svg>
+          </div>
+          <h3 class="service-title">Mobile App Development</h3>
+          <p class="service-desc">Scalable mobile applications built with modern frameworks to deliver native-like
+            performance and UI.</p>
+          <div class="service-features">
+            <span>Android / IOS</span>
+            <span>Cross-platform apps</span>
+            <span>React Native</span>
+          </div>
+        </div>
+
+        <!-- 4. AI & Automation Solutions -->
+        <div class="service-premium-card animate-fade-up">
+          <div class="service-icon-wrap">
+            <svg class="service-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+            </svg>
+          </div>
+          <h3 class="service-title">AI &amp; Automation Solutions</h3>
+          <p class="service-desc">Streamline your business operations with intelligent automation, custom bots, and
+            third-party API integrations.</p>
+          <div class="service-features">
+            <span>AI Chatbots</span>
+            <span>Workflow Automation</span>
+            <span>Business Process Automation</span>
+            <span>API Integrations</span>
+          </div>
+        </div>
+
+        <!-- 5. UI/UX Implementation -->
+        <div class="service-premium-card animate-fade-up delay-1">
+          <div class="service-icon-wrap">
+            <svg class="service-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" />
+            </svg>
+          </div>
+          <h3 class="service-title">UI/UX Implementation</h3>
+          <p class="service-desc">Transforming designs into pixel-perfect, highly responsive, and beautiful frontend
+            interfaces.</p>
+          <div class="service-features">
+            <span>Responsive Design</span>
+            <span>Modern Interfaces</span>
+            <span>Performance Optimization</span>
+          </div>
+        </div>
+
+        <!-- 6. Website Maintenance & Optimization -->
+        <div class="service-premium-card animate-fade-up delay-2">
+          <div class="service-icon-wrap">
+            <svg class="service-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
+            </svg>
+          </div>
+          <h3 class="service-title">Website Maintenance &amp; Optimization</h3>
+          <p class="service-desc">Ongoing technical support, performance tuning, and updates to keep your platform
+            running smoothly.</p>
+          <div class="service-features">
+            <span>Bug Fixes</span>
+            <span>Speed Optimization</span>
+            <span>Feature Updates</span>
+            <span>SEO Improvements</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ INDUSTRIES ═══════════════════════════════════ -->
+  <section class="section industries-section" id="industries">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <div class="section-label">Target Audience</div>
+        <h2 class="section-title">Business Industries I Serve</h2>
+        <p class="section-subtitle">Specialized digital solutions for different business sectors</p>
+      </div>
+      <div class="industries-grid" id="industries-grid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ PROCESS ═══════════════════════════════════ -->
+  <section class="section process-section" id="process">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <div class="section-label">Workflow</div>
+        <h2 class="section-title">My Process</h2>
+        <p class="section-subtitle">A proven step-by-step approach to delivering results</p>
+      </div>
+      <div class="process-timeline" id="process-timeline">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <section class="section projects-section" id="projects">
+    <div class="container">
+      <div class="section-header-left animate-fade-up">
+        <h2 class="section-title">Selected work.</h2>
+        <p class="section-subtitle">Real projects built for real clients and users.</p>
+      </div>
+
+      <!-- ── FEATURED CLIENT PROJECT ── -->
+      <div class="project-featured animate-fade-up" id="featured-project">
+        <div class="project-featured-header">
+          <div class="project-client-badge">Real Client Project</div>
+          <div class="project-meta-row">
+            <span class="project-category-tag">Healthcare</span>
+            <span class="project-year">2024</span>
+          </div>
+          <h3 class="project-featured-title">PatientHealthcare.online</h3>
+          <p class="project-featured-desc">Designed and developed a complete healthcare platform for a real client.
+            Patients can book healthcare services from home with a modern, responsive, and user-friendly interface.</p>
+        </div>
+
+        <div class="project-featured-body">
+          <!-- Screenshot Carousel -->
+          <div class="project-featured-preview">
+            <div class="project-featured-img">
+              <div class="project-browser-bar">
+                <span class="browser-dot"></span>
+                <span class="browser-dot"></span>
+                <span class="browser-dot"></span>
+                <span class="browser-url">patienthealthcare.online</span>
+                <div class="carousel-nav-pills">
+                  <button class="cpill active" data-idx="0" onclick="phCarousel(0)">Home</button>
+                  <button class="cpill" data-idx="1" onclick="phCarousel(1)">Services</button>
+                  <button class="cpill" data-idx="2" onclick="phCarousel(2)">About</button>
+                  <button class="cpill" data-idx="3" onclick="phCarousel(3)">Nursing</button>
+                  <button class="cpill" data-idx="4" onclick="phCarousel(4)">Contact</button>
+                </div>
+              </div>
+              <div class="ph-carousel-track" id="ph-carousel-track">
+                <div class="ph-slide active">
+                  <img src="assets/ph-hero.png" alt="PatientHealthcare Homepage" class="ph-slide-img" loading="eager"
+                    onclick="openLightbox(this.src, 'Homepage')">
+                </div>
+                <div class="ph-slide">
+                  <img src="assets/ph-services.png" alt="Our Services" class="ph-slide-img" loading="lazy"
+                    onclick="openLightbox(this.src, 'Services')">
+                </div>
+                <div class="ph-slide">
+                  <img src="assets/ph-about.png" alt="About Section" class="ph-slide-img" loading="lazy"
+                    onclick="openLightbox(this.src, 'About')">
+                </div>
+                <div class="ph-slide">
+                  <img src="assets/ph-nursing.png" alt="Nursing Procedures" class="ph-slide-img" loading="lazy"
+                    onclick="openLightbox(this.src, 'Nursing Procedures')">
+                </div>
+                <div class="ph-slide">
+                  <img src="assets/ph-contact.png" alt="Contact Section" class="ph-slide-img" loading="lazy"
+                    onclick="openLightbox(this.src, 'Contact')">
+                </div>
+              </div>
+              <div class="ph-carousel-hint">Click image to expand · Use tabs to browse</div>
+            </div>
+          </div>
+
+          <div class="project-featured-details">
+            <div class="project-detail-block">
+              <h4 class="project-detail-label">My Role</h4>
+              <div class="project-roles">
+                <span class="role-tag">UI/UX Design</span>
+                <span class="role-tag">Frontend Dev</span>
+                <span class="role-tag">Backend Integration</span>
+                <span class="role-tag">Database Design</span>
+                <span class="role-tag">Auth</span>
+                <span class="role-tag">Deployment</span>
+              </div>
+            </div>
+
+            <div class="project-detail-block">
+              <h4 class="project-detail-label">Key Features</h4>
+              <ul class="project-features-list">
+                <li>Online appointment booking system</li>
+                <li>Patient profile management</li>
+                <li>Doctor &amp; service listings</li>
+                <li>Responsive mobile-first UI</li>
+                <li>Supabase authentication &amp; database</li>
+                <li>Performance-optimized deployment</li>
+              </ul>
+            </div>
+
+            <div class="project-detail-block">
+              <h4 class="project-detail-label">Stack</h4>
+              <div class="project-tech-row">
+                <span class="tech-pill">HTML</span>
+                <span class="tech-pill">CSS</span>
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">Supabase</span>
+                <span class="tech-pill">Netlify</span>
+              </div>
+            </div>
+
+            <div class="project-actions">
+              <a href="https://patienthealthcare.online" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View Project ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── OTHER PROJECTS ── -->
+      <div class="projects-list" id="projects-list">
+
+        <!-- Food Delivery App -->
+        <div class="project-row animate-fade-up">
+          <div class="project-row-preview">
+            <div class="project-dual-img">
+              <img src="assets/food-delivery-1.png" alt="Food Delivery App - Restaurant Screen" class="dual-img-main"
+                loading="lazy" onclick="openLightbox(this.src, 'Food Delivery App')">
+              <img src="assets/food-delivery-2.png" alt="Food Delivery App - Order Tracking" class="dual-img-secondary"
+                loading="lazy" onclick="openLightbox(this.src, 'Order Tracking')">
+            </div>
+          </div>
+          <div class="project-row-info">
+            <div class="project-row-meta">
+              <span class="project-category-tag">Mobile App</span>
+              <span class="project-year">2024</span>
+            </div>
+            <h3 class="project-row-title">Food Delivery App</h3>
+            <p class="project-row-desc">A mobile-first food ordering platform connecting restaurants, delivery drivers,
+              and customers in real time. Includes live order tracking, payments, and restaurant management dashboards.
+            </p>
+            <div class="project-row-features">
+              <span>Authentication</span>
+              <span>Restaurant Listings</span>
+              <span>Cart &amp; Checkout</span>
+              <span>Order Tracking</span>
+            </div>
+            <div class="project-tech-row">
+              <span class="tech-pill">React Native</span>
+              <span class="tech-pill">Node.js</span>
+              <span class="tech-pill">PostgreSQL</span>
+              <span class="tech-pill">Stripe</span>
+            </div>
+            <div class="project-actions" style="margin-top:24px;">
+              <a href="#" class="btn btn-outline" onclick="openLightbox('assets/food-delivery-1.png', 'Food Delivery App'); return false;">View Details</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Room Booking App -->
+        <div class="project-row project-row-reverse animate-fade-up">
+          <div class="project-row-preview">
+            <div class="project-dual-img">
+              <img src="assets/room-booking-1.png" alt="Room Booking - Homepage" class="dual-img-main" loading="lazy"
+                onclick="openLightbox(this.src, 'Room Booking Platform')">
+              <img src="assets/room-booking-2.png" alt="Room Booking - Room Detail" class="dual-img-secondary"
+                loading="lazy" onclick="openLightbox(this.src, 'Room Detail')">
+            </div>
+          </div>
+          <div class="project-row-info">
+            <div class="project-row-meta">
+              <span class="project-category-tag">Web &amp; Mobile</span>
+              <span class="project-year">2024</span>
+            </div>
+            <h3 class="project-row-title">Room Booking Platform</h3>
+            <p class="project-row-desc">A full-stack hotel and property booking platform. Users can search hotels, view
+              room availability, reserve rooms, and manage their entire booking history from one dashboard.</p>
+            <div class="project-row-features">
+              <span>Booking Calendar</span>
+              <span>Availability Engine</span>
+              <span>Booking History</span>
+              <span>Payment Ready</span>
+            </div>
+            <div class="project-tech-row">
+              <span class="tech-pill">Flutter</span>
+              <span class="tech-pill">Firebase</span>
+              <span class="tech-pill">Google Maps API</span>
+            </div>
+            <div class="project-actions" style="margin-top:24px;">
+              <a href="#" class="btn btn-outline" onclick="openLightbox('assets/room-booking-1.png', 'Room Booking Platform'); return false;">View Details</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ride Sharing App -->
+        <div class="project-row animate-fade-up">
+          <div class="project-row-preview">
+            <div class="project-dual-img">
+              <img src="assets/ride-sharing-1.png" alt="Ride Sharing - Map View" class="dual-img-main" loading="lazy"
+                onclick="openLightbox(this.src, 'Ride Sharing App')">
+              <img src="assets/ride-sharing-2.png" alt="Ride Sharing - Driver Dashboard" class="dual-img-secondary"
+                loading="lazy" onclick="openLightbox(this.src, 'Driver Dashboard')">
+            </div>
+          </div>
+          <div class="project-row-info">
+            <div class="project-row-meta">
+              <span class="project-category-tag">Mobile App</span>
+              <span class="project-year">2024</span>
+            </div>
+            <h3 class="project-row-title">Ride Sharing App</h3>
+            <p class="project-row-desc">A real-time ride-sharing application inspired by Uber. Passengers book rides,
+              drivers accept requests, and both track each other live on a map with geolocation-based matching.</p>
+            <div class="project-row-features">
+              <span>Live Location</span>
+              <span>Driver Dashboard</span>
+              <span>Passenger Dashboard</span>
+              <span>Ride History</span>
+            </div>
+            <div class="project-tech-row">
+              <span class="tech-pill">React Native</span>
+              <span class="tech-pill">Go</span>
+              <span class="tech-pill">WebSockets</span>
+              <span class="tech-pill">Google Maps</span>
+            </div>
+            <div class="project-actions" style="margin-top:24px;">
+              <a href="#" class="btn btn-outline" onclick="openLightbox('assets/ride-sharing-1.png', 'Ride Sharing App'); return false;">View Details</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── LIGHTBOX ── -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+      <p class="lightbox-caption" id="lightbox-caption"></p>
+      <img class="lightbox-img" id="lightbox-img" src="" alt="">
+    </div>
+  </div>
+
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <div class="section-header-left animate-fade-up">
+        <h2 class="section-title">Frequently Asked Questions.</h2>
+        <p class="section-subtitle">Everything you need to know before we start working together.</p>
+      </div>
+      <div class="faq-accordion-container animate-fade-up delay-1">
+
+        <div class="static-faq-item">
+          <div class="static-faq-question">
+            <span>What services do you provide?</span>
+            <div class="faq-plus-minus"></div>
+          </div>
+          <div class="static-faq-answer">
+            <div class="faq-answer-inner">
+              <p>I build modern websites, web applications, mobile apps, and AI-powered automation solutions tailored to
+                business needs.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="static-faq-item">
+          <div class="static-faq-question">
+            <span>Which technologies do you work with?</span>
+            <div class="faq-plus-minus"></div>
+          </div>
+          <div class="static-faq-answer">
+            <div class="faq-answer-inner">
+              <p>I work with HTML, CSS, JavaScript, React, Next.js, React Native, Node.js, Python, FastAPI, Supabase,
+                PostgreSQL, and modern deployment platforms.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="static-faq-item">
+          <div class="static-faq-question">
+            <span>Can you build custom business websites?</span>
+            <div class="faq-plus-minus"></div>
+          </div>
+          <div class="static-faq-answer">
+            <div class="faq-answer-inner">
+              <p>Yes. I create fully responsive, high-performance websites customized to your business goals and brand
+                identity.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="static-faq-item">
+          <div class="static-faq-question">
+            <span>Do you develop mobile applications?</span>
+            <div class="faq-plus-minus"></div>
+          </div>
+          <div class="static-faq-answer">
+            <div class="faq-answer-inner">
+              <p>Yes. I build cross-platform mobile applications with modern UI and scalable architecture.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="static-faq-item">
+          <div class="static-faq-question">
+            <span>Can you improve an existing website?</span>
+            <div class="faq-plus-minus"></div>
+          </div>
+          <div class="static-faq-answer">
+            <div class="faq-answer-inner">
+              <p>Yes. I can redesign, optimize, improve performance, fix bugs, and add new features to existing
+                websites.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="static-faq-item">
+          <div class="static-faq-question">
+            <span>Do you provide AI automation solutions?</span>
+            <div class="faq-plus-minus"></div>
+          </div>
+          <div class="static-faq-answer">
+            <div class="faq-answer-inner">
+              <p>Yes. I build AI-powered chatbots, workflow automations, API integrations, and productivity solutions.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="static-faq-item">
+          <div class="static-faq-question">
+            <span>How can we work together?</span>
+            <div class="faq-plus-minus"></div>
+          </div>
+          <div class="static-faq-answer">
+            <div class="faq-answer-inner">
+              <p>You can contact me through the contact form, WhatsApp, or email to discuss your project requirements.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="section-header-left animate-fade-up">
+        <h2 class="section-title">Get in touch.</h2>
+        <p class="section-subtitle">Let's build something that helps your business grow.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info animate-fade-right">
+          <div class="contact-info-card">
+            <h3 class="contact-info-title">Let's talk about your project</h3>
+            <p class="contact-info-text">Whether you need a website, mobile app, or a complete digital transformation —
+              I'm here to help. Fill out the form and I'll get back to you within 24 hours.</p>
+            <div class="contact-methods">
+              <a href="mailto:helloworldhex69@gmail.com" class="contact-method">
+                <span class="cm-icon">✉️</span>
+                <div>
+                  <span class="cm-label">Email</span>
+                  <span class="cm-value">helloworldhex69@gmail.com</span>
+                </div>
+              </a>
+              <a href="https://api.whatsapp.com/send?phone=918407857849&text=Hi%20there!%20I%27d%20like%20to%20discuss%20a%20project."
+                target="_blank" rel="noopener" class="contact-method whatsapp-btn">
+                <span class="cm-icon">💬</span>
+                <div>
+                  <span class="cm-label">WhatsApp</span>
+                  <span class="cm-value">Chat with me now</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-col animate-fade-left">
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="lead-name" class="form-label">Full Name *</label>
+                <input type="text" id="lead-name" name="name" class="form-input" placeholder="John Doe" required
+                  autocomplete="name" />
+              </div>
+              <div class="form-group">
+                <label for="lead-email" class="form-label">Email Address *</label>
+                <input type="email" id="lead-email" name="email" class="form-input" placeholder="john@company.com"
+                  required autocomplete="email" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="lead-phone" class="form-label">Phone Number</label>
+              <input type="tel" id="lead-phone" name="phone" class="form-input" placeholder="+1 234 567 8900"
+                autocomplete="tel" />
+            </div>
+            <div class="form-group">
+              <label for="lead-message" class="form-label">Project Details *</label>
+              <textarea id="lead-message" name="message" class="form-input form-textarea"
+                placeholder="Tell me about your project, budget, and timeline..." required rows="5"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+              <span class="btn-text">Send Message</span>
+              <span class="btn-icon">→</span>
+            </button>
+            <div class="form-status" id="form-status"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ FLOATING WHATSAPP ═══════════════════════════════════ -->
+  <a href="https://api.whatsapp.com/send?phone=918407857849&text=Hi%20there!%20I%27d%20like%20to%20discuss%20a%20project."
+    target="_blank" rel="noopener" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+    <div class="floating-wa-tooltip">Chat with me on WhatsApp</div>
+    <svg viewBox="0 0 24 24" fill="currentColor" class="wa-icon">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+    </svg>
+  </a>
+
+  <!-- ═══════════════════════════════════ FOOTER ═══════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="nav-logo">
+            <span class="logo-text">Hello<span class="accent">dev</span></span>
+          </a>
+          <p class="footer-tagline">Building digital products that make a difference.</p>
+          <div class="social-links">
+            <a href="https://github.com/Huzaifa-Md" target="_blank" rel="noopener" class="social-link"
+              aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/md-huzaifa-605275270/" target="_blank" rel="noopener"
+              class="social-link" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Services</h4>
+          <ul class="footer-links">
+            <li><a href="#services">Website Development</a></li>
+            <li><a href="#services">App Development</a></li>
+            <li><a href="#services">Backend Solutions</a></li>
+            <li><a href="#contact">Hire Me</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Contact</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:helloworldhex69@gmail.com">helloworldhex69@gmail.com</a></li>
+            <li><a
+                href="https://api.whatsapp.com/send?phone=918407857849&text=Hi%20there!%20I%27d%20like%20to%20discuss%20a%20project."
+                target="_blank" rel="noopener">WhatsApp Chat</a></li>
+          </ul>
+          <a href="admin/index.html" class="admin-link">Admin Panel</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="footer-year"></span> Hellodev. All rights reserved. Built with ❤️</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/supabase-config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
